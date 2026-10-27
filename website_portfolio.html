@@ -33,7 +33,7 @@ footer{padding:28px 0;background:var(--plum);color:#fff3fb}.footer-inner{display
  <div class="wrap nav-inner">
   <a class="brand" href="#home"><span class="brand-mark">✿</span> ARUNIMA.KV</a>
   <div class="navlinks" id="navlinks">
-   <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#projects">Projects</a><a href="#creative">Creative Corner</a><a href="#achievements">Wins</a><a href="#contact">Contact</a>
+   <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#projects">Projects</a><a href="#creative">Creative Corner</a><a href="#achievements">Wins</a><a href="#roadmap">Career Roadmap ✨</a><a href="#contact">Contact</a>
   </div>
   <div class="nav-actions"><button class="btn small" onclick="openAdmin()">✎ Edit my site</button><button class="menu-btn" aria-label="Open menu" onclick="toggleMenu()">☰</button></div>
  </div>
@@ -160,6 +160,286 @@ function addSong(){const el=document.getElementById('songInput');if(!el.value.tr
 function deleteSong(i){data.songs.splice(i,1);persist();render()}
 function submitContact(e){e.preventDefault();const name=document.getElementById('contactName').value.trim();document.getElementById('contactStatus').textContent=`Thanks, ${name}! This is a preview only—the form has not sent an email. Connect a real form service before publishing.`;alert('Preview only: no email has been sent.')}
 render();
+</script>
+<!-- Interactive Career Roadmap -->
+<section id="roadmap" class="roadmap-section">
+  <div class="roadmap-header">
+    <span class="roadmap-sticker">🌱 My growth journey</span>
+    <h2>My Career Roadmap ✨</h2>
+    <p>Small steps today, big dreams tomorrow!</p>
+  </div>
+
+  <div class="roadmap-progress">
+    <div class="progress-info">
+      <span>My progress</span>
+      <strong id="roadmap-percent">0%</strong>
+    </div>
+    <div class="progress-track">
+      <div id="roadmap-bar" class="progress-bar"></div>
+    </div>
+  </div>
+
+  <div class="roadmap-list">
+    <label class="roadmap-card">
+      <input type="checkbox" class="roadmap-task">
+      <span class="roadmap-icon">💻</span>
+      <span class="roadmap-task-info">
+        <strong>Build coding fundamentals</strong>
+        <small>Practice C, Python and problem-solving.</small>
+      </span>
+      <span class="roadmap-tag">Learning</span>
+    </label>
+
+    <label class="roadmap-card">
+      <input type="checkbox" class="roadmap-task">
+      <span class="roadmap-icon">🌐</span>
+      <span class="roadmap-task-info">
+        <strong>Master Git and GitHub</strong>
+        <small>Build projects and practise collaboration.</small>
+      </span>
+      <span class="roadmap-tag">Projects</span>
+    </label>
+
+    <label class="roadmap-card">
+      <input type="checkbox" class="roadmap-task">
+      <span class="roadmap-icon">🎨</span>
+      <span class="roadmap-task-info">
+        <strong>Build my portfolio projects</strong>
+        <small>Create and publish useful projects.</small>
+      </span>
+      <span class="roadmap-tag">Portfolio</span>
+    </label>
+
+    <label class="roadmap-card">
+      <input type="checkbox" class="roadmap-task">
+      <span class="roadmap-icon">📄</span>
+      <span class="roadmap-task-info">
+        <strong>Prepare my resume</strong>
+        <small>Highlight skills, projects and certificates.</small>
+      </span>
+      <span class="roadmap-tag">Career</span>
+    </label>
+
+    <label class="roadmap-card">
+      <input type="checkbox" class="roadmap-task">
+      <span class="roadmap-icon">🚀</span>
+      <span class="roadmap-task-info">
+        <strong>Apply for internships</strong>
+        <small>Explore opportunities and practise interviews.</small>
+      </span>
+      <span class="roadmap-tag">Next step</span>
+    </label>
+  </div>
+
+  <p id="roadmap-message" class="roadmap-message">
+    Every expert was once a beginner. Keep going! 💗
+  </p>
+</section>
+
+<style>
+.roadmap-section {
+  max-width: 850px;
+  margin: 60px auto;
+  padding: 32px 22px;
+  border-radius: 26px;
+  background: #fff9f4;
+  color: #44364d;
+  font-family: inherit;
+}
+
+.roadmap-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.roadmap-sticker {
+  display: inline-block;
+  padding: 8px 14px;
+  background: #e7f4e8;
+  border-radius: 20px;
+  color: #466c50;
+}
+
+.roadmap-header h2 {
+  font-size: clamp(1.7rem, 5vw, 2.5rem);
+  margin: 15px 0 8px;
+}
+
+.roadmap-header p {
+  color: #786c80;
+}
+
+.roadmap-progress {
+  background: white;
+  border: 1px solid #f0e3ec;
+  padding: 18px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.progress-track {
+  height: 12px;
+  background: #eee5f1;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #c5a5ef, #f4a9c8);
+  border-radius: inherit;
+  transition: width 0.3s ease;
+}
+
+.roadmap-list {
+  display: grid;
+  gap: 12px;
+}
+
+.roadmap-card {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 17px;
+  background: white;
+  border: 1px solid #eee3ed;
+  border-radius: 17px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.roadmap-card:hover {
+  transform: translateY(-2px);
+}
+
+.roadmap-card input {
+  width: 18px;
+  height: 18px;
+  accent-color: #a77bd3;
+  flex-shrink: 0;
+}
+
+.roadmap-icon {
+  font-size: 1.6rem;
+}
+
+.roadmap-task-info {
+  display: grid;
+  gap: 5px;
+  flex: 1;
+}
+
+.roadmap-task-info small {
+  color: #817586;
+  line-height: 1.4;
+}
+
+.roadmap-tag {
+  font-size: 0.75rem;
+  padding: 6px 9px;
+  background: #f5eafa;
+  border-radius: 20px;
+}
+
+.roadmap-card:has(input:checked) {
+  background: #f0f8ef;
+  border-color: #c7e4c8;
+}
+
+.roadmap-card:has(input:checked) .roadmap-task-info strong {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.roadmap-message {
+  text-align: center;
+  margin-top: 24px;
+  color: #84628f;
+  font-weight: 600;
+}
+
+@media (max-width: 520px) {
+  .roadmap-section {
+    padding: 24px 14px;
+  }
+
+  .roadmap-card {
+    gap: 9px;
+    padding: 13px 10px;
+  }
+
+  .roadmap-tag {
+    display: none;
+  }
+}
+</style>
+
+<script>
+(() => {
+  const tasks = [
+    ...document.querySelectorAll(".roadmap-task")
+  ];
+
+  const percent = document.getElementById("roadmap-percent");
+  const bar = document.getElementById("roadmap-bar");
+  const message = document.getElementById("roadmap-message");
+  const storageKey = "arunima-career-roadmap-v1";
+
+  function updateProgress() {
+    const completed = tasks.filter(task => task.checked).length;
+    const progress = Math.round(
+      (completed / tasks.length) * 100
+    );
+
+    percent.textContent = progress + "%";
+    bar.style.width = progress + "%";
+
+    if (progress === 100) {
+      message.textContent =
+        "Amazing! You completed your roadmap! 🎉";
+    } else if (progress >= 60) {
+      message.textContent =
+        "You're making great progress. Keep going! 🌷";
+    } else {
+      message.textContent =
+        "Every expert was once a beginner. Keep going! 💗";
+    }
+
+    try {
+      localStorage.setItem(
+        storageKey,
+        JSON.stringify(tasks.map(task => task.checked))
+      );
+    } catch (error) {
+      // The checklist still works if browser storage is unavailable.
+    }
+  }
+
+  try {
+    const saved = JSON.parse(
+      localStorage.getItem(storageKey) || "[]"
+    );
+
+    tasks.forEach((task, index) => {
+      task.checked = saved[index] === true;
+    });
+  } catch (error) {
+    // Start with an empty checklist if saved data cannot be read.
+  }
+
+  tasks.forEach(task => {
+    task.addEventListener("change", updateProgress);
+  });
+
+  updateProgress();
+})();
 </script>
 </body>
 </html>
